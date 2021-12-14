@@ -14,6 +14,24 @@ const sequelize = new Sequelize(
         host: process.env.DB_HOST,
 
         dialect: "mysql",
+
+        dialect: "mysql",
+        ssl: {
+            rejectUnauthorized: false,
+        },
+        dialectOptions: {
+            ssl: {
+                rejectUnauthorized: false,
+            },
+        },
+        define: {
+            timestamps: false,
+        },
+        pool: {
+            max: 5,
+            min: 0,
+            idle: 10000,
+        },
     }
 );
 
