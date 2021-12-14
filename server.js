@@ -1,4 +1,6 @@
 const { Sequelize } = require("sequelize");
+const express = require("express");
+const app = express();
 
 //require dotenv
 require("dotenv").config();
@@ -26,4 +28,5 @@ const connectPlanetScale = async () => {
 
 connectPlanetScale();
 
-sequelize.close();
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
