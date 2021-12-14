@@ -17,16 +17,14 @@ const sequelize = new Sequelize(
     }
 );
 
-const connectPlanetScale = async () => {
+app.get("/", async (req, res) => {
     try {
         await sequelize.authenticate();
-        console.log("Connection has been established successfully.");
+        res.send("Connection has been established successfully.");
     } catch (error) {
-        console.error("Unable to connect to the database:", error);
+        res.send("Unable to connect to the database:", error);
     }
-};
-
-connectPlanetScale();
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
