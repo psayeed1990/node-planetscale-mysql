@@ -22,7 +22,8 @@ app.get("/", async (req, res) => {
         await sequelize.authenticate();
         res.send("Connection has been established successfully.");
     } catch (error) {
-        res.send("Unable to connect to the database:", error);
+        console.log(error);
+        res.send("Unable to connect to the databas");
     }
 });
 
